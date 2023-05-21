@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Pacifico|Cookie|Josefin Sans|Poiret One|Patua One">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Sharp" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="calculator.css">
+
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="tabs">
+        <button id="home" class="home-btn">
+            <span class="material-symbols-outlined">
+                home
+            </span>
+        </button>
+        <div id="search-tab">
+            <div id="search-bar-container">
+              <input type="text" id="search-bar" >
+              <button id="search-icon"><span class="material-symbols-outlined" >
+                search
+            </span></button>
+            </div>
+            
+          </div>
+        <button id="star" class="star-btn">
+            <span class="material-symbols-outlined">
+                star
+            </span>
+        </button>
+        
+    </div>
+    <div class="home-tab" id="homeTab">
+        <!-- Your existing calculator code goes here -->
+        <div class="calculator-container">
+            <header>
+                <h1>Carbs Calculator</h1>
+            </header>
+            <br><br>
+
+            <div class="input-container">
+                <label>Carbs/100g</label>
+                <p id="carbs-100g" class="input-field">0</p>
+                <label>Portion (g)</label>
+                <p id="portion" class="input-field">0</p>
+            </div>
+            <div class="numeric-pad">
+                <button class="numeric-button">1</button>
+                <button class="numeric-button">2</button>
+                <button class="numeric-button">3</button>
+                <button class="numeric-button">4</button>
+                <button class="numeric-button">5</button>
+                <button class="numeric-button">6</button>
+                <button class="numeric-button">7</button>
+                <button class="numeric-button">8</button>
+                <button class="numeric-button">9</button>
+                <button class="numeric-button">0</button>
+                <button id="decimal-point-button">.</button>
+                <button id="clear-button">C</button>
+                <button id="equal-button">=</button>
+            </div>
+            <button class="save-btn" id="saveBtn">Save</button>
+            <p id="output"></p>
+            <p id="warning">Please enter valid numbers in the input fields!</p>
+        </div>
+    </div>
+
+    <div class="saved-tab" id ="savedTab" style="display: none;">
+        <ul class="saved-list" id="savedItemsList">
+        </ul>
+    </div>
+
+    <div class="searched-tab" id ="searchTab" style="display: none;">
+        <ul id="search-results">
+        </ul>
+    </div>
+
+    
+
+</body>
+<script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js').then(function(registration) {
+          console.log('Service worker registered: ', registration);
+        }).catch(function(error) {
+          console.error('Service worker registration failed: ', error);
+        });
+      });
+    }
+  </script>
+<script src="calculator.js"></script>
+
+
+</html>
